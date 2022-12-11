@@ -45,5 +45,13 @@ public class Employee {
         System.out.println("\tSalary: " + salary);
         System.out.println("\tAllowance: " + allowance);
     }
+    public void displayEmployeeInformationWhoUpdateAllowance(){
+        System.out.println("-------- EMPLOYEE LIST WHO UPDATE ALLOWANCE--------");
+        System.out.println("\tId: " + id);
+        System.out.println("\tName: " + name);
+        System.out.println("\tAge: " + age);
+        System.out.println("\tSalary: " + salary);
+        System.out.println("\tAllowance: " + allowance);
+    }
 }
 

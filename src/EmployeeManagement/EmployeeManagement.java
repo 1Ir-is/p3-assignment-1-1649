@@ -56,9 +56,11 @@ public class EmployeeManagement {
 
     void updateCommission(float newAllowance,String id){
         for (int i = 0; i < index; i++) {
+            Employee employee = ls[i];
             if (ls[i].id.compareToIgnoreCase(id)==0){//found
                 ls[i].allowance =ls[i].allowance +newAllowance;
                 System.out.println("Update commission");
+                employee.displayEmployeeInformationWhoUpdateAllowance();
             }
         }
     }
