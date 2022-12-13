@@ -28,30 +28,5 @@ public class Employee {
         System.out.println("Enter allowance: ");
         allowance = scanner.nextFloat();
     }
-
-    public void displayEmployeeInformation(){
-        System.out.println("-------- EMPLOYEE LIST --------");
-        System.out.println("\tId: " + id);
-        System.out.println("\tName: " + name);
-        System.out.println("\tAge: " + age);
-        System.out.println("\tSalary: " + salary);
-        System.out.println("\tAllowance: " + allowance);
-    }
-    public void displayEmployeeInformationWithOutAllowance(){
-        System.out.println("-------- EMPLOYEE LIST WITH OUT ALLOWANCE--------");
-        System.out.println("\tId: " + id);
-        System.out.println("\tName: " + name);
-        System.out.println("\tAge: " + age);
-        System.out.println("\tSalary: " + salary);
-        System.out.println("\tAllowance: " + allowance);
-    }
-    public void displayEmployeeInformationWhoUpdateAllowance(){
-        System.out.println("-------- EMPLOYEE LIST WHO UPDATE ALLOWANCE--------");
-        System.out.println("\tId: " + id);
-        System.out.println("\tName: " + name);
-        System.out.println("\tAge: " + age);
-        System.out.println("\tSalary: " + salary);
-        System.out.println("\tAllowance: " + allowance);
-    }
 }
 

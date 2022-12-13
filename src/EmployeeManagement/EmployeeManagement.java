@@ -1,11 +1,12 @@
 package EmployeeManagement;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class EmployeeManagement {
     static Employee[] ls = new Employee[100];
     static int index = 0;
 
-    public void inputs(){
+    void inputs(){
         Scanner scanner = new Scanner(System.in);
         String choice;
         do {
@@ -17,50 +18,62 @@ public class EmployeeManagement {
             choice = scanner.next();
         }while (choice.equalsIgnoreCase("y"));
     }
-    public void outputs(){
+    void outputs(){
+        System.out.println("List employees");
+        System.out.println("ID\t\t Name\t Age\tSalary\t\t Allowance");
         for (int i = 0; i<index;i++){
             Employee employee = ls[i];
-            employee.displayEmployeeInformation();
+            System.out.printf("%1s %10s  %5d    ",employee.id,employee.name,employee.age);
+            System.out.printf("%5s %12s\n",employee.salary,employee.allowance);
         }
     }
-    public void displayWithoutAllowance(){
+    void displayWithoutAllowance(){
+        System.out.println("List employees zero commission");
+        System.out.println("ID\t\t Name\t Age\tSalary\t\t Allowance");
             for (int i = 0; i<index;i++){
                 Employee employee = ls[i];
                 if (employee.allowance == 0) {
-                    employee.displayEmployeeInformationWithOutAllowance();
+                    System.out.printf("%1s %10s  %5d    ",employee.id,employee.name,employee.age);
+                    System.out.printf("%5s %12s\n",employee.salary,employee.allowance);
                 }
             }
     }
-    public void findName(String name){
-        for (int i = 0; i<index; i++){
-            Employee employee = ls[i];
-            if (name.compareToIgnoreCase(employee.name) == 0){
-                employee.displayEmployeeInformation();
+    void findName(String name){
+        System.out.println("List employees");
+        System.out.println("ID\t\t Name\t Age\tSalary\t\t Allowance");
+        for (int i = 0; i < index; i++) {
+            if (Objects.equals(ls[i].name, name)){
+                Employee employee=ls[i];
+                System.out.printf("%1s %10s  %5d    ",employee.id,employee.name,employee.age);
+                System.out.printf("%5s %12s\n",employee.salary,employee.allowance);
             }
         }
     }
-    public void Sort(){
-        System.out.println("sort by name");
+    void Sort(){
+        System.out.println("Sort by name");
         for (int i = 0; i < index; i++) {
             int min=i;
             for (int j = i; j < index; j++) {
                 if (ls[j].name.compareToIgnoreCase(ls[min].name)<0){
                     min=j;
-                    Employee employee =ls[i];
+                    Employee employee=ls[i];
                     ls[i]=ls[min];
-                    ls[min]= employee;
+                    ls[min]=employee;
                 }
             }
         }
     }
 
-    void updateCommission(float newAllowance,String id){
+    void updateAllowance(float newAllowance,String id){
         for (int i = 0; i < index; i++) {
-            Employee employee = ls[i];
             if (ls[i].id.compareToIgnoreCase(id)==0){//found
-                ls[i].allowance =ls[i].allowance +newAllowance;
+                Employee employee=ls[i];
+                ls[i].allowance =ls[i].allowance + newAllowance;
                 System.out.println("Update commission");
-                employee.displayEmployeeInformationWhoUpdateAllowance();
+                System.out.println("List employees");
+                System.out.println("ID\t\t Name\t Age\tSalary\t\t Allowance");
+                System.out.printf("%1s %10s  %5d    ",employee.id,employee.name,employee.age);
+                System.out.printf("%5s %12s\n",employee.salary,employee.allowance);
             }
         }
     }
@@ -105,7 +118,7 @@ public class EmployeeManagement {
                     String id = scanner.nextLine();
                     System.out.println("Enter new allowance");
                     float newAllowance = scanner.nextFloat();
-                    employeeManagement.updateCommission(newAllowance,id);
+                    employeeManagement.updateAllowance(newAllowance,id);
                     break;
                 case "6":
                     employeeManagement.displayWithoutAllowance();
